@@ -21,12 +21,12 @@ metadata:
   name: bookshelf-frontend
   labels:
     app: bookshelf
-# The bookshelf frontend replica set ensures that at least 3
+# The bookshelf frontend replica set ensures that at least 2
 # instances of the bookshelf app are running on the cluster.
 # For more info about Pods see:
 #   https://cloud.google.com/kubernetes-engine/docs/pods/
 spec:
-  replicas: 3
+  replicas: 2
   template:
     metadata:
       labels:
