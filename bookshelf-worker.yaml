@@ -40,7 +40,7 @@ spec:
         # This setting makes nodes pull the docker image every time before
         # starting the pod. This is useful when debugging, but should be turned
         # off in production.
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         # The PROCESSES environment variable is used by Honcho in the
         # Dockerfile's CMD to control which processes are started. In this
         # case, only the worker process is needed.

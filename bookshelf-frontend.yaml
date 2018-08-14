@@ -40,7 +40,7 @@ spec:
         # This setting makes nodes pull the docker image every time before
         # starting the pod. This is useful when debugging, but should be turned
         # off in production.
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         # The PROCESSES environment variable is used by Honcho in the
         # Dockerfile's CMD to control which processes are started. In this
         # case, only the bookshelf process is needed.
@@ -49,5 +49,4 @@ spec:
           value: bookshelf
         # The bookshelf process listens on port 8080 for web traffic by default.
         ports:
-        - name: http-server
-          containerPort: 8080
+        - containerPort: 80
