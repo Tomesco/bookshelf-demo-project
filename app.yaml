@@ -17,26 +17,31 @@
 # for details.
 
 # For flex app engine
-# runtime: python
-# env: flex
-# manual_scaling:
-#   instances: 1
+runtime: python
+env: flex
+manual_scaling:
+  instances: 1
+resources:
+  cpu: 2
+  memory_gb: 1.4
+  disk_size_gb: 10
 
 # For standard app engine
-runtime: python37
+# runtime: python37
 
-automatic_scaling:
-  min_instances: 0
+# automatic_scaling:
+#   min_instances: 0
 
 # [START entrypoint]
 # Instead of using gunicorn directly, we'll use Honcho. Honcho is a python port
 # of the Foreman process manager. For the default service, only the
 # frontend process is needed.
 entrypoint: honcho start -f /app/procfile bookshelf
+# entrypoint: honcho start -f /procfile bookshelf
 # [END entrypoint]
 
-# runtime_config:
-#   python_version: 3
+runtime_config:
+  python_version: 3
 
 beta_settings:
     # If using Cloud SQL, uncomment and set this value to the Cloud SQL
