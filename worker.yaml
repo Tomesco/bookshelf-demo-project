@@ -20,12 +20,12 @@
 service: worker
 runtime: python
 env: flex
-# manual_scaling:
-#   instances: 1
-# resources:
-#   cpu: 1
-#   memory_gb: 1.4
-#   disk_size_gb: 10
+manual_scaling:
+  instances: 1
+resources:
+  cpu: 1
+  memory_gb: 1.4
+  disk_size_gb: 10
 
 # runtime: python37
 # automatic_scaling:
