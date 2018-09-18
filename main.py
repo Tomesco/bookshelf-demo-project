@@ -18,7 +18,7 @@ import config
 
 # Note: debug=True is enabled here to help with troubleshooting. You should
 # remove this in production.
-app = bookshelf.create_app(config, debug=True)
+app = bookshelf.create_app(config, debug=False)
 
 
 # Make the queue available at the top-level, this allows you to run
