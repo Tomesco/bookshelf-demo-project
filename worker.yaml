@@ -26,4 +26,4 @@ automatic_scaling:
 # Instead of using gunicorn directly, we'll use Honcho. Honcho is a python port
 # of the Foreman process manager. For the worker service, both the queue worker
 # and the monitor process are needed.
-entrypoint: honcho start -f /app/procfile worker monitor
+entrypoint: honcho start -f /procfile worker monitor
