@@ -1,4 +1,4 @@
-bookshelf: gunicorn -b 0.0.0.0:$PORT main:app
+bookshelf: pip install ./psq-0.7.1.tar.gz && gunicorn -b 0.0.0.0:$PORT main:app
 # for kubernetes
 # worker: psqworker main.books_queue
 # for app engine
