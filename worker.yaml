@@ -27,10 +27,6 @@ resources:
   memory_gb: 1.4
   disk_size_gb: 10
 
-# runtime: python37
-# automatic_scaling:
-#   min_instances: 0
-
 # Instead of using gunicorn directly, we'll use Honcho. Honcho is a python port
 # of the Foreman process manager. For the worker service, both the queue worker
 # and the monitor process are needed.
