@@ -32,3 +32,4 @@ lib/
 /service-account.json
 /config.py
 .vscode/
+cloud_sql_proxy
