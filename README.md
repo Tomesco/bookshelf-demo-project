@@ -1,21 +1,8 @@
-# Deploy Bookshelf to Google Kubernetes Engine
+# Deploy a Web App to Kubernetes Engine on GCP
 
-This optional tutorial will walk you through how to deploy the Bookshelf sample application to [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/). This tutorial is also applicable to [Kubernetes](http://kubernetes.io/) outside of Google Kubernetes Engine, but may require additional steps for external load balancing.
+This project demonstrates deploying a simple Bookshelf web application to [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/).
 
-## Pre-requisites
-
-1. Create a project in the [Google Cloud Platform Console](https://console.cloud.google.com).
-
-2. [Enable billing](https://console.cloud.google.com/project/_/settings) for your project.
-
-3. [Enable APIs](https://console.cloud.google.com/flows/enableapi?apiid=datastore,pubsub,storage_api,logging,plus) for your project. The provided link will enable all necessary APIs, but if you wish to do so manually you will need Datastore, Pub/Sub, Storage, and Logging.
-
-4. Install the [Google Cloud SDK](https://cloud.google.com/sdk)
-
-        $ curl https://sdk.cloud.google.com | bash
-        $ gcloud init
-
-5. Install [Docker](https://www.docker.com/).
+View the [live app](https://bookshelf-212723.appspot.com).
 
 ## Create a cluster
 
@@ -42,10 +29,6 @@ The bookshelf application uses [Google Cloud Storage](https://cloud.google.com/s
 Alternatively, you can use make:
 
     make create-bucket
-
-## Update config.py
-
-Modify config.py and enter your Cloud Project ID into the `PROJECT_ID` and `CLOUD_STORAGE_BUCKET` field. The remaining configuration values are only needed if you wish to use a different database or if you wish to enable log-in via oauth2, which requires a domain name.
 
 ## Build the bookshelf container
 
