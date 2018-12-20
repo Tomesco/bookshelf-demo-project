@@ -17,7 +17,7 @@ import logging
 from bookshelf import get_model, storage
 from flask import current_app
 from google.cloud import pubsub
-import psq
+from .. import psq
 import requests
 
 
