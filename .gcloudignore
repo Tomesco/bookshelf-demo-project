@@ -30,10 +30,13 @@ lib/
 /secrets.tar
 /client-secret.json
 /service-account.json
-/config.py
 .vscode/
 
 .dockerignore
+.gitignore
+.DS_Store
+.gcloudignore
+.git/
 bookshelf-frontend.yaml
 bookshelf-service.yaml
 bookshelf-worker.yaml
