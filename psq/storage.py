@@ -12,18 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# This file specifies your Python application's runtime configuration.
-# See https://cloud.google.com/appengine/docs/managed-vms/python/runtime
-# for details.
 
-# [START worker]
-service: worker
+class Storage(object):
+    """
+    Storage implements task persistence. PSQ doesn't require any actual
+    storage, but you can not get the return value of a task without it.
+    This base class does not store any data and just stubs out the methods.
+    """
 
-runtime: python37
-automatic_scaling:
-  min_instances: 0
+    def get_task(self, task_id):
+        pass
 
-# Instead of using gunicorn directly, we'll use Honcho. Honcho is a python port
-# of the Foreman process manager. For the worker service, both the queue worker
-# and the monitor process are needed.
-entrypoint: honcho start -f procfile worker monitor
+    def put_task(self, task):
+        pass
+
+    def delete_task(self, task_id):
+        pass

@@ -12,18 +12,31 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# This file specifies your Python application's runtime configuration.
-# See https://cloud.google.com/appengine/docs/managed-vms/python/runtime
-# for details.
+from contextlib import contextmanager
 
-# [START worker]
-service: worker
+from werkzeug.local import LocalStack
 
-runtime: python37
-automatic_scaling:
-  min_instances: 0
 
-# Instead of using gunicorn directly, we'll use Honcho. Honcho is a python port
-# of the Foreman process manager. For the worker service, both the queue worker
-# and the monitor process are needed.
-entrypoint: honcho start -f procfile worker monitor
+# Context-locals for the current queue.
+_queue_stack = LocalStack()
+current_queue = _queue_stack()
+
+
+@contextmanager
+def queue_context(queue):
+    _queue_stack.push(queue)
+    with queue.extra_context() as c:
+        yield c
+    _queue_stack.pop()
+
+
+# Context-locals for the current task.
+_task_stack = LocalStack()
+current_task = _task_stack()
+
+
+@contextmanager
+def task_context(task):
+    _task_stack.push(task)
+    yield
+    _task_stack.pop()
